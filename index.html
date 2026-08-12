@@ -1253,16 +1253,139 @@ button, input, textarea, select { max-width: 100%; }
  .matrix-box { padding:20px 12px; }
  .matrix-box h1 { font-size:1.15rem; line-height:1.2; overflow-wrap:anywhere; }
 }
-@media (max-width:420px) {
- header { padding:10px; }
- .logo { font-size:.78rem; }
- .status-badge { font-size:.58rem; padding:4px 7px; }
- nav { gap:10px; font-size:.66rem; }
- #welcome-section { width:calc(100% - 14px); padding:17px 10px; }
- .matthew-factor-container, .why-matters-container { margin-left:7px; margin-right:7px; padding:17px 10px; }
- .archive-grid { margin-left:7px; margin-right:7px; }
- .visual-display { min-height:220px; }
- .cyber-btn { padding:9px 11px; font-size:.68rem; }
+@media (max-width:600px) {
+    /* True phone layout: keep every component inside the viewport. */
+    html, body { width:100%; min-width:0; }
+    body { font-size:15px; }
+
+    header {
+        width:100%;
+        min-width:0;
+        padding:10px 12px;
+        gap:8px;
+        flex-wrap:wrap;
+    }
+    .logo {
+        flex:1 1 auto;
+        min-width:0;
+        font-size:clamp(.78rem,3.8vw,.95rem);
+        letter-spacing:.8px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    .status-badge {
+        flex:0 0 auto;
+        font-size:.58rem;
+        padding:4px 7px;
+        gap:5px;
+    }
+    nav {
+        flex:0 0 100%;
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        justify-content:flex-start;
+        gap:0;
+        padding:4px 0 2px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+    nav a {
+        flex:0 0 auto;
+        font-size:.66rem;
+        padding:4px 9px;
+        letter-spacing:.5px;
+    }
+
+    #welcome-section, #final-record-section {
+        width:calc(100% - 20px);
+        max-width:none;
+        margin:12px auto;
+        padding:18px 12px;
+        border-radius:12px;
+    }
+    .bday-title {
+        font-size:clamp(1.2rem,7vw,1.8rem);
+        line-height:1.12;
+        letter-spacing:.5px;
+        word-break:normal;
+        overflow-wrap:break-word;
+    }
+    .quote-box { font-size:.9rem; letter-spacing:.4px; line-height:1.5; }
+    .monument-box { padding:13px 10px; font-size:.8rem; line-height:1.5; }
+    .action-buttons { width:100%; gap:8px; }
+    .cyber-btn {
+        flex:1 1 auto;
+        min-width:0;
+        padding:9px 10px;
+        font-size:.68rem;
+        letter-spacing:.6px;
+    }
+
+    .matthew-factor-container, .why-matters-container {
+        width:calc(100% - 20px);
+        max-width:none;
+        margin:12px auto;
+        padding:18px 12px;
+        border-radius:12px;
+    }
+    .mf-main-title, .wm-main-title {
+        font-size:clamp(1.3rem,7vw,1.9rem);
+        line-height:1.12;
+        letter-spacing:.5px;
+        overflow-wrap:break-word;
+    }
+    .mf-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+    .mf-quote-box { padding:13px; font-size:.88rem; line-height:1.5; }
+    .mf-stat-info { font-size:.7rem; letter-spacing:.8px; }
+
+    .archive-grid {
+        width:calc(100% - 20px);
+        max-width:none;
+        margin:0 auto 20px;
+        grid-template-columns:minmax(0,1fr);
+        gap:12px;
+    }
+    .archive-card { min-width:0; width:100%; }
+    .card-header, .card-footer { padding:9px 10px; gap:6px; }
+    .card-header { font-size:.68rem; }
+    .visual-display { min-height:210px; padding:12px 8px; }
+    .content-box { width:100%; max-width:100%; padding:15px 10px; }
+
+    .terminal-overlay, #terminal-overlay { padding:10px; }
+    .terminal-window { width:100%; height:min(430px,78vh); border-radius:7px; }
+    .terminal-header, .terminal-body, .terminal-input-line { padding-left:8px; padding-right:8px; }
+    .terminal-body { font-size:.7rem; line-height:1.4; overflow-x:hidden; word-break:break-word; }
+    .terminal-input-line { gap:5px; }
+    .terminal-input { min-width:0; width:0; font-size:.72rem; }
+
+    #matrix-secret-screen { width:100%; padding:10px; }
+    .matrix-box { width:100%; max-width:100%; padding:18px 10px; }
+    .matrix-box h1 { font-size:1rem; line-height:1.2; letter-spacing:1px; }
+
+    /* Reduce GPU-heavy effects on phones; the visual style stays intact. */
+    header, .splash-content, .matthew-factor-container, .why-matters-container,
+    #welcome-section, #final-record-section, .content-box, .terminal-window, .matrix-box {
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+    }
+    .archive-card:hover { transform:none; }
+}
+
+@media (max-width:380px) {
+    header { padding:8px 9px; }
+    .logo { font-size:.74rem; }
+    .status-badge { font-size:.54rem; padding:3px 6px; }
+    nav a { font-size:.62rem; padding:4px 7px; }
+    #welcome-section, #final-record-section,
+    .matthew-factor-container, .why-matters-container, .archive-grid {
+        width:calc(100% - 14px);
+    }
+    .cyber-btn { padding:8px 7px; font-size:.63rem; }
+    .visual-display { min-height:190px; }
 }
 
 </style>
